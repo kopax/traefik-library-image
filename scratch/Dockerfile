@@ -14,3 +14,6 @@ LABEL org.opencontainers.image.vendor="Containous" \
 	org.opencontainers.image.description="A modern reverse-proxy" \
 	org.opencontainers.image.version="v2.1.0" \
 	org.opencontainers.image.documentation="https://docs.traefik.io"
+	
+## Fix nssswitch not looking at hosts file (See https://github.com/containous/traefik/pull/6012)
+RUN echo "hosts: files dns" > /etc/nsswitch.conf
