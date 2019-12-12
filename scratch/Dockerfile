@@ -1,8 +1,8 @@
 FROM scratch
+
 COPY --from=traefik:v2.1.0-alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=traefik:v2.1.0-alpine /usr/share/zoneinfo /usr/share/
-COPY --from=traefik:v2.1.0-alpine /usr/local/bin/traefik /
-	
+COPY --from=traefik:v2.1.0-alpine /usr/local/bin/traefik /	
 COPY --from=traefik:v2.1.0-alpine /etc/nsswitch.conf /etc/nsswitch.conf
 
 EXPOSE 80
@@ -14,5 +14,5 @@ LABEL org.opencontainers.image.vendor="Containous" \
 	org.opencontainers.image.url="https://traefik.io" \
 	org.opencontainers.image.title="Traefik" \
 	org.opencontainers.image.description="A modern reverse-proxy" \
-	org.opencontainers.image.version="v2.1.0" \
+	org.opencontainers.image.version="v2.1.1" \
 	org.opencontainers.image.documentation="https://docs.traefik.io"
