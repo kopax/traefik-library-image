@@ -3,7 +3,6 @@ COPY --from=traefik:v2.1.0-alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/ce
 COPY --from=traefik:v2.1.0-alpine /usr/share/zoneinfo /usr/share/
 COPY --from=traefik:v2.1.0-alpine /usr/local/bin/traefik /
 	
-## Fix nssswitch not looking at hosts file (See https://github.com/containous/traefik-library-image/pull/75)
 RUN [ ! -e /etc/nsswitch.conf ] && echo "hosts: files dns" > /etc/nsswitch.conf
 
 EXPOSE 80
