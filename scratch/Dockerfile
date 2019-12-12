@@ -3,7 +3,7 @@ COPY --from=traefik:v2.1.0-alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/ce
 COPY --from=traefik:v2.1.0-alpine /usr/share/zoneinfo /usr/share/
 COPY --from=traefik:v2.1.0-alpine /usr/local/bin/traefik /
 	
-RUN [ ! -e /etc/nsswitch.conf ] && echo "hosts: files dns" > /etc/nsswitch.conf
+COPY --from=traefik:v2.1.0-alpine /etc/nsswitch.conf /etc/nsswitch.conf
 
 EXPOSE 80
 VOLUME ["/tmp"]
