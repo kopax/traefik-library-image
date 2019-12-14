@@ -10,6 +10,7 @@ RUN set -ex; \
 	esac; \
 	wget --quiet -O /usr/local/bin/traefik "https://github.com/containous/traefik/releases/download/$VERSION/traefik_linux-$arch"; \
 	chmod +x /usr/local/bin/traefik
+RUN [ ! -e /etc/nsswitch.conf ] && echo "hosts: files dns" > /etc/nsswitch.conf
 COPY entrypoint.sh /
 EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]
