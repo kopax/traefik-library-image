@@ -1,5 +1,4 @@
 FROM scratch
-
 COPY --from=traefik:v2.1.0-alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=traefik:v2.1.0-alpine /usr/share/zoneinfo /usr/share/
 COPY --from=traefik:v2.1.0-alpine /usr/local/bin/traefik /	
