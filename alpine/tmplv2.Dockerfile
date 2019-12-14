@@ -12,6 +12,7 @@ RUN set -ex; \
 	tar xzvf /tmp/traefik.tar.gz -C /usr/local/bin traefik; \
 	rm -f /tmp/traefik.tar.gz; \
 	chmod +x /usr/local/bin/traefik
+RUN [ ! -e /etc/nsswitch.conf ] && echo "hosts: files dns" > /etc/nsswitch.conf
 COPY entrypoint.sh /
 EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]
