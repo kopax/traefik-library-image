@@ -2,7 +2,6 @@ FROM scratch
 COPY --from=traefik:${VERSION}-alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=traefik:${VERSION}-alpine /usr/share/zoneinfo /usr/share/
 COPY --from=traefik:${VERSION}-alpine /usr/local/bin/traefik /
-
 COPY --from=traefik:v2.1.0-alpine /etc/nsswitch.conf /etc/nsswitch.conf
 
 EXPOSE 80
